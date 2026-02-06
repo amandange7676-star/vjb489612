@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600&display=swap');
+.header-19{
+font-family: 'Bebas Neue', sans-serif!important;
+}
+.header-42 {
+  position: absolute!important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+}
+
+/* Top Bar */
+.header-42-top-bar {
+  background: #1b1b1b3d;
+  padding: 14px 0;
+  font-size: 13px;
+  color: #fff;
+}
+
+.header-42-bar-list {
+  margin: 0;
+}
+
+.header-42-bar-list i {
+  margin-right: 4px;
+}
+
+/* Logo and Navigation Holder */
+.header-42-holder {
+  padding: 12px 0;
+}
+
+.header-42-logo img {
+  max-height: 46px;
+  padding-left: 49px;
+}
+
+.header-42-navbar {
+  background: transparent;
+  border: none;
+  margin: 0;
+
+}
+
+.header-42-menu > li > a {
+  color: #fff!important;
+font-family: 'Bebas Neue', sans-serif!important;
+  font: 18px!important;
+  letter-spacing: 0.2px;
+  padding: 10px 15px;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.header-42 li a{
+  font-family: 'Bebas Neue', sans-serif !important;
+}
+
+
+
+.header-42-menu > li.active > a,
+.header-42-menu > li > a:hover,
+.header-42-menu > li > a:focus {
+  color: #ef4444!important;
+}
+
+
+
+.header-42-menu > li > a:hover::before,
+.header-42-menu > li.active > a::before {
+  transform: scaleX(1);
+}
+
+/* Quote Button */
+.header-42-btn-quote {
+  background: #ef4444;
+  border: none;
+  color: #fff !important;
+  padding: 9px 20px;
+  margin-left: 8px;
+}
+
+.header-42-btn-quote:hover {
+  background: #d99a00;
+}
+
+/* Search Icon */
+.header-42-search-li a {
+  padding: 10px 10px 10px 5px;
+}
+
+  .header-42 #nav .navbar-collapse {
+  z-index: 999;
+}
+
+/* ===============================
+   HERO SECTION
+   =============================== */
+.header-42-hero {
+  margin: 0;
+  padding: 60px 0;
+  position: relative;
+  min-height: 640px;
+  background: center/cover no-repeat;
+  color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  font-family: 'Bebas Neue', sans-serif !important;
+  background-color: #111827; /* fallback */
+}
+
+.header-42-hero-title {
+font-size: 80px;
+  line-height: 1.1;
+  color: #000;
+  margin-bottom: 20px;
+  font-weight: bolder;
+  font-family: 'Bebas Neue', sans-serif!important;
+}
+.header-42-hero-title .highlight {
+  color: #ef4444;
+  font-family: 'Bebas Neue', sans-serif!important;
+
+}
+.header-42-hero-desc {
+  color: #000;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.header-42-hero-total {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.header-42-hero-total span {
+  color: #fff;
+}
+
+.header-42-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.header-42-hero-qty {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  background: #fff;
+  color: #111;
+  overflow: hidden;
+}
+.header-42-hero-qty span {
+  padding: 0 10px;
+  font-size: 16px;
+}
+.header-42-hero-qty .btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #111;
+}
+.header-42-hero-buy {
+  background: linear-gradient(to right, #f4c430, #111);
+  border: none;
+  color: #fff;
+  border-radius: 25px;
+  padding: 10px 30px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.header-42-hero-buy:hover {
+  background: linear-gradient(to right, #ffb703, #000);
+}
+
+.header-42-hero-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.header-42-hero-menu .menu-item {
+background: rgba(67, 67, 69, 0.93);
+  border-radius: 51px;
+  padding: 8px;
+}
+.header-42-hero-menu .menu-item.active,
+.header-42-hero-menu .menu-item:hover {
+background: #ef4444;
+  color: #fff;
+}
+.header-42-hero-menu img {
+width: 130px;
+  height: 130px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+}
+.header-42-hero-menu  p{
+  font-size: 25px;
+  text-align: center;
+}
+.header-42-hero-img {
+  position: relative;
+}
+.header-42-hero-bowl {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 50%;
+  transform-origin: center;
+  position: absolute;
+  left: 59px;
+  top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-42-hero {
+    text-align: center;
+    padding: 40px 0;
+  }
+  .header-42-hero-title {
+    font-size: 48px;
+  }
+  .header-42-hero-actions {
+    justify-content: center;
+  }
+  .header-42-hero-img {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+
+#dynamic-header{
+  background: #e33b3b45;
+}
+
+}

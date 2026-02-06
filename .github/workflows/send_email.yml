@@ -1,0 +1,82 @@
+
+name: Send Contact Email
+
+on:
+  repository_dispatch:
+    types: [send_email]
+    
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Email to User
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: "smtp.gmail.com"
+          server_port: "465"
+          secure: true
+          username: "amandange7676@gmail.com"
+          password: "dock bpmc qeqk zyhd"
+          subject: ${{ github.event.client_payload.subject }}
+          to: "amandange7676@gmail.com"
+          from: ${{ github.event.client_payload.from_email }}
+          body: |
+            ${{ github.event.client_payload.body }}
+
+      - name: Send Email to Admin
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: "smtp.gmail.com"
+          server_port: "465"
+          secure: true
+          username: "amandange7676@gmail.com"
+          password: "dock bpmc qeqk zyhd"
+          subject: ${{ github.event.client_payload.subject }}
+          to: fashionsense482@gmail.com
+          from: "amandange7676@gmail.com"
+          body: |
+            From: ${{ github.event.client_payload.from_email }}
+            Message:
+            ${{ github.event.client_payload.body }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install PyGithub
+        run: pip install PyGithub
+
+      - name: Log Email in GitHub Issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EMAIL_SUBJECT: ${{ github.event.client_payload.subject }}
+          EMAIL_FROM: ${{ github.event.client_payload.from_email }}
+          EMAIL_BODY: ${{ github.event.client_payload.body }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          python <<'EOF'
+          import os
+          from github import Github
+          from datetime import datetime
+
+          subject = os.environ["EMAIL_SUBJECT"]
+          from_email = os.environ["EMAIL_FROM"]
+          body = os.environ["EMAIL_BODY"]
+          repo_name = os.environ["GITHUB_REPOSITORY"]
+
+          g = Github(os.environ["GITHUB_TOKEN"])
+          repo = g.get_repo(repo_name)
+
+          now = datetime.utcnow().isoformat()
+          title = f"Email Log: {subject} ({now})"
+          content = f"**From:** {from_email}\n**Subject:** {subject}\n**Message:**\n{body}"
+
+
+          repo.create_issue(title=title, body=content)
+          EOF
