@@ -1,0 +1,30 @@
+
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Wrangler
+        run: npm install -g wrangler
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: -FEff1YD-6l6Z2XMBL2EoDy2XDBeenKXxDSAtd1E
+          CLOUDFLARE_ACCOUNT_ID: 72ba13f5ae3c9cd3d1caacd6862174f1
+        run: |
+          wrangler pages deploy .             --project-name=bbvgfgj             --branch=main             --commit-dirty
+                
