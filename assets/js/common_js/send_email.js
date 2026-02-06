@@ -46,7 +46,7 @@ window.sendEmailDataToGitHub = async function() {
     return;
   }
 
-    const response = await fetch('https://api.github.com/repos/amandange7676-star/uos298006/dispatches', {
+    const response = await fetch('https://api.github.com/repos/amandange7676-star/vjb489612/dispatches', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
